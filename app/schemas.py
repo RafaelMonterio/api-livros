@@ -4,8 +4,15 @@ from pydantic import BaseModel, Field
 class LivroCriacao(BaseModel):
     titulo: str = Field(min_length=1, max_length=150)
     autor: str = Field(min_length=1, max_length=120)
-    ano_publicacao: int = Field(ge=0, le=2100)
+    ano_publicacao: int = Field(ge=1, le=2100)
     disponivel: bool = True
+
+
+class LivroAtualizacao(BaseModel):
+    titulo: str = Field(min_length=1, max_length=150)
+    autor: str = Field(min_length=1, max_length=120)
+    ano_publicacao: int = Field(ge=1, le=2100)
+    disponivel: bool
 
 
 class LivroResposta(BaseModel):
